@@ -8,7 +8,11 @@ jar {
 }
 
 task createArchives(type: Tar) {
-  archiveFileName = "java.tar"
-  destinationDirectory = file("$buildDir/archives")
-  from "java"
+  file('.').eachDirMatch(~/^(java)$/) { sub ->
+    dependsOn tasks.create("${name}_${sub.name}", Tar) {
+      from sub
+      archiveBaseName = sub.name
+      destinationDirectory = file("$buildDir/archives")
+    }
+  }
 }
