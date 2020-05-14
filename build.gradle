@@ -11,7 +11,7 @@ task createArchives(type: Tar) {
   file('templates').eachDir { sub ->
     dependsOn tasks.create("${name}_${sub.name}", Tar) {
       from sub
-      archiveBaseName = sub.name
+      archiveName = "${sub.name}.tar"
       destinationDirectory = file("$buildDir/archives")
     }
   }
