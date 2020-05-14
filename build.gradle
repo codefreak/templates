@@ -3,7 +3,7 @@ apply plugin: 'java'
 jar {
   dependsOn 'createArchives'
   from(fileTree("$buildDir/archives")) {  
-      into "META-INF/templates" 
+      into "org/codefreak/templates" 
   }
 }
 
