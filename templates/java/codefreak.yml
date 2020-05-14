@@ -1,5 +1,32 @@
-title: Program in Java
-description: Write a function `add(int a, int b)` that returns the sum of `a` and `b`
+title: Unnamed Java Task
+description: |
+  # Java Task Example
+
+  This is basic Java task to get you started quickly with Code FREAK.
+
+  To turn this into a useful programming exercise, you have to do the following.
+
+  ## Provide Code to Students
+
+  If you do not want your students to start completely from scratch, provide some scaffolding code. Look into `src/main/java` for some inspiration.
+
+  ## Setup Automatic Evaluation
+
+  This example comes with two pre-configured evaluation steps. You can see them in the _Evaluation_ tab. To try it out, enter _testing mode_ and start the evaluation.
+
+  ### Static Code Analysis
+
+  The tool [Code Climate](https://github.com/codeclimate/codeclimate) is used to provide your students with tips on how to write better code. It is configured via `.codeclimate.yml` in the task files. See [official documentation](https://docs.codeclimate.com/docs/advanced-configuration) for details.
+
+  ### Unit Tests
+
+  Unit tests are your main instrument for automatically validating your students' answers. To get started, look into `src/test/java` for example test cases.
+
+  The standard testing framework for Java is JUinit. Refer to the [official documentation](https://junit.org/junit5/docs/current/user-guide/) for more information.
+
+  ## Provide Instructions
+
+  Click on this text to edit it. Here you describe to your students what they have to do.
 hidden:
   - src/test/**
   - .codeclimate.yml
@@ -7,14 +34,5 @@ protected:
   - build.gradle
   - settings.gradle
 evaluation:
-  - step: comments
   - step: codeclimate
-  - step: commandline
-    options:
-      image: gradle
-      project-path: /home/gradle/project
-      commands:
-        - pwd
-        - gradle test
-        - ls build/test-results/test
   - step: junit

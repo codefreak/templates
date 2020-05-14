@@ -46,11 +46,4 @@ class CalculatorTest {
             calculator.add(null, null);
         });
     }
-
-    @Test
-    @Disabled
-    void skipMe() {}
-
-    @Test
-    void alwaysSucceed() {}
 }
