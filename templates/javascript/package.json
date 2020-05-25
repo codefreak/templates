@@ -1,0 +1,17 @@
+{
+  "name": "codefreak-javascript",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Code FREAK JavaScript task",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Code FREAK authors",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1",
+    "jest-junit": "^10.0.0"
+  }
+}
