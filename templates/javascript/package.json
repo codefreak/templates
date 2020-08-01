@@ -10,8 +10,8 @@
   "author": "Code FREAK authors",
   "license": "ISC",
   "devDependencies": {
-    "jest": "26.0.1",
-    "jest-cli": "26.0.1",
+    "jest": "26.2.2",
+    "jest-cli": "26.2.2",
     "jest-junit": "10.0.0"
   }
 }
