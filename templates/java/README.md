@@ -11,6 +11,6 @@ Be aware of all edge cases:
 Throw an `InvalidArgumentException` in all cases where no calculation can be made.
 
 ## References/Help
-- [Java ist auch eine Insel - Exceptions]()
-- [Integer (Java Platform SE 8 )](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)
-- [Math (Java Platform SE 8 )](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html)
+- [Exceptions Tutorial](https://docs.oracle.com/javase/tutorial/essential/exceptions/index.html)
+- [Integer (Java Platform SE 8)](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html)
+- [Math (Java Platform SE 8)](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html)
