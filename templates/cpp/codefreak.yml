@@ -27,6 +27,6 @@ evaluation:
       project-path: "/code"
       results-path: "/output"
       commands:
-        - g++ -I include src/AddFunction.cpp tests/test.cpp -o build/test.exe
-        - build/test.exe -r junit -o output/TEST-report.xml
+        - g++ -I include src/AddFunction.cpp tests/test.cpp -o output/test.exe
+        - output/test.exe -r junit -o output/TEST-report.xml
         
