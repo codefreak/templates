@@ -36,3 +36,10 @@ protected:
 evaluation:
   - step: codeclimate
   - step: junit
+    options:
+      image: gradle
+      project-path: /home/gradle/project
+      stop-on-fail: true
+      commands:
+        - gradle testClasses
+        - gradle test
