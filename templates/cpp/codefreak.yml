@@ -1,5 +1,5 @@
 ---
-title: Program in C-Plus-Plus
+title: Program in C++
 description: "# C++ Task Example\n\nThis is a basic C++ task to get you started quickly with Code FREAK.\n\nTo turn this into a useful programming exercise, you have to do the following.\n\n## Provide Code to Students\n\nIf you do not want your students to start completely from scratch, provide some scaffolding code. Look into `src` for some inspiration.\n\n## Setup Automatic Evaluation\n\nThis example comes with a pre-configured evaluation step. You can see it in the _Evaluation_ tab. To try it out, enter _testing mode_ and start the evaluation.\n\n### Unit Tests\n\nUnit tests are your main instrument for automatically validating your students' answers. To get started, look into `test` for example test cases.\n\nThe standard testing framework for C++ is googletest. Refer to the [official documentation](https://github.com/google/googletest) for more information.\n\n## Provide Instructions\n\nClick on this text to edit it. Here you describe to your students what they have to do.\n"
 hidden:
 - test/**
