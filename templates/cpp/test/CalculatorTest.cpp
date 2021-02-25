@@ -26,7 +26,7 @@ TEST_F(CalculatorTest, AdditionWithRegularNumbers) {
 TEST_F(CalculatorTest, ValidAdditionsWithExtremeValues) {
     EXPECT_EQ(calculator->add(INT_MAX, 0), INT_MAX);
     EXPECT_EQ(calculator->add(INT_MIN, 0), INT_MIN);
-    EXPECT_EQ(calculator->add(INT_MAX, -1 * INT_MIN), 0);
+    EXPECT_EQ(calculator->add(INT_MAX, INT_MIN + 1), 0);
 }
 
 TEST_F(CalculatorTest, InvalidAdditionsThatWouldResultInAnIntegerOverflow) {
