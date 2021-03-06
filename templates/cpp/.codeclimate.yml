@@ -5,3 +5,6 @@ plugins:
     enabled: true
     config:
       filter: "-,+whitespace,+readability,-whitespace/ending_newline,-readability/multiline_string,-readability/casting"
+exclude_patterns:
+  - "build/"
+  - "test/"
