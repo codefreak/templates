@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build and run project",
+        "type": "shell",
+        "command": "cmake --build ${workspaceFolder}/build --config Debug --target ExampleProject_run -- -j 14 && ${workspaceFolder}/build/src/ExampleProject_run",
+        "group": "build"
+      }
+    ]
+  }
