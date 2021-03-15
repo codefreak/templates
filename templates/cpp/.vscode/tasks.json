@@ -1,11 +1,24 @@
 {
     "version": "2.0.0",
     "tasks": [
-      {
-        "label": "Build and run project",
-        "type": "shell",
-        "command": "cmake --build ${workspaceFolder}/build --config Debug --target ExampleProject_run -- -j 14 && ${workspaceFolder}/build/src/ExampleProject_run",
-        "group": "build"
-      }
+        {
+            "label": "Create build directory",
+            "type": "shell",
+            "command": "mkdir -p ${workspaceFolder}/build"
+        },
+        {
+            "label": "Run CMake",
+            "type": "shell",
+            "dependsOn": "Create build directory",
+            "command": "cmake -B ${workspaceFolder}/build",
+            "group": "build"
+        },
+        {
+            "label": "Build Project",
+            "type": "shell",
+            "dependsOn": "Run CMake",
+            "command": "cmake --build ${workspaceFolder}/build --config Debug --target ExampleProject_run",
+            "group": "build"
+        }
     ]
-  }
+}

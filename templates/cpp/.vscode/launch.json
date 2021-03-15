@@ -5,8 +5,8 @@
             "name": "Launch",
             "type": "cppdbg",
             "request": "launch",
-            "preLaunchTask": "Build and run project",
-            "program": "",
+            "preLaunchTask": "Build Project",
+            "program": "${workspaceFolder}/build/src/ExampleProject_run",
             "cwd": "${workspaceFolder}",
         }
     ]
