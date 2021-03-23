@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "Build Project",
+            "program": "${workspaceFolder}/build/src/ExampleProject_run",
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}
