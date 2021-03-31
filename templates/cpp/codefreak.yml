@@ -17,7 +17,7 @@ evaluation:
     project-path: /code
     commands:
     - "rm -rf build # Remove possible build files because there might be conflicting settings (i.e. the compiler path) from external builds"
-    - cmake -s . -B build -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles"
+    - cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles"
     - make -C build ExampleProject_tst
     - build/test/ExampleProject_tst --gtest_output=xml:test-results/TEST-report.xml
   title: Unit Tests
