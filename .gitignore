@@ -2,5 +2,11 @@
 .gradle
 
 # Ignore Gradle build output directory
-build
-templates/csharp/**/obj
+/build
+/templates/java/build
+
+# Ignore C# build artifacts
+/templates/csharp/**/obj
+
+__pycache__
+node_modules

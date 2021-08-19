@@ -16,7 +16,7 @@ description: |
 
   ### Static Code Analysis
 
-  The tool [Code Climate](https://github.com/codeclimate/codeclimate) is used to provide your students with tips on how to write better code. It is configured via `.codeclimate.yml` in the task files. See [official documentation](https://docs.codeclimate.com/docs/advanced-configuration) for details.
+  The code is anaylzed using [ESLint](https://eslint.org/) for proper formatting (based on [`standard`](https://github.com/standard/standard)) and possible issues.
 
   ### Unit Tests
 
@@ -29,17 +29,26 @@ description: |
   Click on this text to edit it. Here you describe to your students what they have to do.
 hidden:
   - src/__tests__/**
-  - .codeclimate.yml
+  - jest.config.js
+  - .eslintignore
+  - .eslintrc.js
+protected:
   - package.json
   - package-lock.json
-  - jest.config.js
 evaluation:
-  - step: codeclimate
-  - step: junit
-    options:
-      image: "node:lts"
-      project-path: /code
-      results-path: test-results
-      commands:
-        - npm ci
-        - npm test
+  unit-tests:
+    title: Unit Tests
+    script: |-
+      npm ci
+      npm run test
+    report:
+      format: junit-xml
+      path: test-results/TEST-*.xml
+  code-quality:
+    title: Code Quality
+    script: |-
+      npm ci
+      npm run --silent lint-report > checkstyle-report.xml
+    report:
+      format: checkstyle-xml
+      path: checkstyle-report.xml

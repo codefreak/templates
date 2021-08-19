@@ -16,7 +16,7 @@ description: |
 
   ### Static Code Analysis
 
-  The tool [Code Climate](https://github.com/codeclimate/codeclimate) is used to provide your students with tips on how to write better code. It is configured via `.codeclimate.yml` in the task files. See [official documentation](https://docs.codeclimate.com/docs/advanced-configuration) for details.
+  The Code is analyzed for proper formatting using the Tool [`Checkstyle`](https://github.com/checkstyle/checkstyle) and [Google's code style for Java](https://google.github.io/styleguide/javaguide.html).
 
   ### Unit Tests
 
@@ -29,17 +29,28 @@ description: |
   Click on this text to edit it. Here you describe to your students what they have to do.
 hidden:
   - src/test/**
-  - .codeclimate.yml
 protected:
   - build.gradle
   - settings.gradle
+  - gradlew
+  - gradlew.bat
+  - gradle/**
+  - config/**
 evaluation:
-  - step: codeclimate
-  - step: junit
-    options:
-      image: gradle
-      project-path: /home/gradle/project
-      stop-on-fail: true
-      commands:
-        - gradle testClasses
-        - gradle test
+  unit-tests:
+    title: Unit Tests
+    script: |-
+      # This is only to make sure the gradlew is executable
+      chmod u+x gradlew
+      ./gradlew test
+    report:
+      format: junit-xml
+      path: build/test-results/test/TEST-*.xml
+  code-quality:
+    title: Code Quality
+    script: |-
+      chmod u+x gradlew
+      ./gradlew checkstyleMain
+    report:
+      format: checkstyle-xml
+      path: build/reports/checkstyle/main.xml

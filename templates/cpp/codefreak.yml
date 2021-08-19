@@ -1,26 +1,57 @@
 ---
 title: Program in C++
-description: "# C++ Task Example\n\nThis is a basic C++ task to get you started quickly with Code FREAK.\n\nTo turn this into a useful programming exercise, you have to do the following.\n\n## Provide Code to Students\n\nIf you do not want your students to start completely from scratch, provide some scaffolding code. Look into `src` for some inspiration.\n\n## Setup Automatic Evaluation\n\nThis example comes with a pre-configured evaluation step. You can see it in the _Evaluation_ tab. To try it out, enter _testing mode_ and start the evaluation.\n\n### Unit Tests\n\nUnit tests are your main instrument for automatically validating your students' answers. To get started, look into `test` for example test cases.\n\nThe standard testing framework for C++ is googletest. Refer to the [official documentation](https://github.com/google/googletest) for more information.\n\n## Provide Instructions\n\nClick on this text to edit it. Here you describe to your students what they have to do.\n"
+description: |-
+  # C++ Task Example
+
+  This is a basic C++ task to get you started quickly with Code FREAK.
+
+  To turn this into a useful programming exercise, you have to do the following.
+
+  ## Provide Code to Students
+
+  If you do not want your students to start completely from scratch, provide some scaffolding code. Look into `src` for some inspiration.
+
+  ## Setup Automatic Evaluation
+
+  This example comes with a pre-configured evaluation step. You can see it in the _Evaluation_ tab. To try it out, enter _testing mode_ and start the evaluation.
+
+  ### Static Code Analysis
+
+  The code is anaylzed using [cpplint](https://github.com/cpplint/cpplint) for proper formatting, which enforces [Google's C++ code styleguide](https://github.com/google/styleguide).
+
+  ### Unit Tests
+
+  Unit tests are your main instrument for automatically validating your students' answers. To get started, look into `test` for example test cases.
+
+  The standard testing framework for C++ is googletest. Refer to the [official documentation](https://github.com/google/googletest) for more information.
+
+  ## Provide Instructions
+
+  Click on this text to edit it. Here you describe to your students what they have to do.
 hidden:
 - test/**
-- .codeclimate.yml
 protected:
 - CMakeLists.txt
 evaluation:
-- step: comments
-  options: {}
-  title: Comments
-- step: junit
-  options:
-    image: rikorose/gcc-cmake
-    results-path: test-results
-    project-path: /code
-    commands:
-    - "rm -rf build # Remove possible build files because there might be conflicting settings (i.e. the compiler path) from external builds"
-    - cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles"
-    - make -C build ExampleProject_tst
-    - build/test/ExampleProject_tst --gtest_output=xml:test-results/TEST-report.xml
-  title: Unit Tests
-- step: codeclimate
-  options: {}
-  title: Code Quality
+  unit-tests:
+    title: Unit Tests
+    script: |-
+      # Remove possible build files because there might be conflicting settings (i.e. the compiler path) from external builds"
+      rm -rf build
+      mkdir -p build
+      cd build
+      cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" ..
+      make ExampleProject_tst
+      test/ExampleProject_tst --gtest_output=xml:test-results/TEST-report.xml
+    report:
+      format: junit-xml
+      path: build/test-results/TEST-report.xml
+  code-quality:
+    title: Code Quality
+    script: |-
+      pip3 install cpplint
+      # Errors will be written to stderr
+      cpplint --recursive --output=vs7 --root=src --filter=-legal/copyright --quiet src 2> cpplint-report.txt
+    report:
+      format: visualstudio
+      path: cpplint-report.txt

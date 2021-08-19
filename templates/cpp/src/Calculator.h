@@ -1,8 +1,8 @@
-#ifndef CALCULATOR_H
-#define CALCULATOR_H
+#ifndef CALCULATOR_H_
+#define CALCULATOR_H_
 
 class Calculator {
-    public:
+ public:
     /**
      * Return the sum of a and b
      * Throws an exception if a and/or b have illegal resultTypes or the result cannot be calculated
@@ -14,4 +14,4 @@ class Calculator {
     int add(int a, int b);
 };
 
-#endif // CALCULATOR_H
+#endif  // CALCULATOR_H_
