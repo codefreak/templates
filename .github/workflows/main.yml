@@ -5,10 +5,6 @@ on: [push, pull_request, release]
 jobs:
   main:
     runs-on: ubuntu-20.04
-    env:
-      # webpack build needs a lot of memory
-      NODE_OPTIONS: --max_old_space_size=4096
-
     steps:
       - uses: actions/checkout@v2
 
