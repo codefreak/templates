@@ -1,5 +1,6 @@
 plugins {
   id "java"
+  // for local testing with "gradle install"
   id "maven"
 }
 
@@ -33,7 +34,7 @@ task createArchives(type: Tar) {
   file('templates').eachDir { sub ->
     dependsOn tasks.create("${name}_${sub.name}", Tar) {
       from sub
-      archiveName = "${sub.name}.tar"
+      archiveFileName = "${sub.name}.tar"
       destinationDirectory = file("$buildDir/archives")
     }
   }

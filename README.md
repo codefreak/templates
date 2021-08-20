@@ -9,7 +9,7 @@ Contribution is welcome. **Please open issues in the [main repository](https://g
 ## Contribute a new template
 Please create a new directory inside `/templates` with the name corresponding to the programming language name.
 The content of the directory should equal to an unpacked task that can be imported into Code FREAK.
-After you created the directory please add your template with a human-readable title to the [`org.codefreak.templates.TaskTemplate`](src/main/java/org/codefreak/templates/TaskTemplate.java) enum.
+After you created the directory please add your template with a human-readable title and a small description to the [`org.codefreak.templates.TaskTemplate`](src/main/java/org/codefreak/templates/TaskTemplate.java) enum.
 Please follow [GitHub's official Pull Request guide](https://docs.github.com/en/github/collaborating-with-pull-requests/getting-started/about-collaborative-development-models) on how to contribute your changes to this repository.
 
 ## Development
