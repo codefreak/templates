@@ -1,5 +1,6 @@
 # Task Templates
 
+[![CI](https://github.com/codefreak/templates/actions/workflows/main.yml/badge.svg)](https://github.com/codefreak/templates/actions/workflows/main.yml)
 [![](https://jitpack.io/v/codefreak/templates.svg)](https://jitpack.io/#codefreak/templates)
 
 These are the task templates for [Code FREAK](https://github.com/codefreak/codefreak). They are available in the user interface under **Task Pool** → **Create Task**. You can also take a look at the code here to get started with task definition files.
