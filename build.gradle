@@ -1,4 +1,8 @@
-apply plugin: 'java'
+plugins {
+  id "java"
+}
+
+group = 'com.github.codefreak'
 
 jar {
   dependsOn 'createArchives'

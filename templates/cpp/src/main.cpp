@@ -1,10 +1,9 @@
 #include<iostream>
 #include"Calculator.h"
-using namespace std;
 
 void printSumOf(int a, int b) {
     Calculator calculator;
-    cout << a << " + " << b << " = " << calculator.add(a, b) << endl;
+    std::cout << a << " + " << b << " = " << calculator.add(a, b) << std::endl;
 }
 
 int main() {
@@ -13,4 +12,3 @@ int main() {
     printSumOf(0, 0);
     return 0;
 }
-

@@ -16,7 +16,7 @@ description: |
 
   ### Static Code Analysis
 
-  The tool [Code Climate](https://github.com/codeclimate/codeclimate) is used to provide your students with tips on how to write better code. It is configured via `.codeclimate.yml` in the task files. See [official documentation](https://docs.codeclimate.com/docs/advanced-configuration) for details.
+  The code is anaylzed using [dotnet-format](https://github.com/dotnet/format) for proper formatting.
 
   ### Unit Tests
 
@@ -32,11 +32,20 @@ hidden:
 protected:
   - AddFunction.sln
 evaluation:
-  - step: codeclimate
-  - step: junit
-    options:
-      image: "mcr.microsoft.com/dotnet/core/sdk:3.1"
-      project-path: /code
-      results-path: tests/AddFunction.Tests
-      commands:
-        - dotnet test tests/AddFunction.Tests/AddFunction.Tests.csproj --logger "junit;LogFilePath=TEST-report.xml"
+  unit-tests:
+    title: Unit Tests
+    script: |-
+      export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
+      dotnet test tests/AddFunction.Tests/AddFunction.Tests.csproj --logger "junit;LogFilePath=TEST-report.xml"
+    report:
+      format: junit-xml
+      path: tests/AddFunction.Tests/TEST-report.xml
+  code-quality:
+    title: Code Quality
+    script: |-
+      export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
+      dotnet tool install -g dotnet-format
+      dotnet-format -v quiet --check 2> dotnet-format-report.txt
+    report:
+      format: visualstudio
+      path: dotnet-format-report.txt
