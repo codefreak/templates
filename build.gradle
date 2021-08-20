@@ -1,13 +1,31 @@
 plugins {
   id "java"
+  id "maven"
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 }
 
 group = 'com.github.codefreak'
 
-jar {
+test {
+  useJUnitPlatform()
+  testLogging {
+    events "failed"
+    exceptionFormat "full"
+  }
+}
+
+processResources {
   dependsOn 'createArchives'
-  from(fileTree("$buildDir/archives")) {  
-      into "org/codefreak/templates" 
+  from(fileTree("$buildDir/archives")) {
+    into "org/codefreak/templates"
   }
 }
 
