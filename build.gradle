@@ -1,13 +1,32 @@
 plugins {
   id "java"
+  // for local testing with "gradle install"
+  id "maven"
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 }
 
 group = 'com.github.codefreak'
 
-jar {
+test {
+  useJUnitPlatform()
+  testLogging {
+    events "failed"
+    exceptionFormat "full"
+  }
+}
+
+processResources {
   dependsOn 'createArchives'
-  from(fileTree("$buildDir/archives")) {  
-      into "org/codefreak/templates" 
+  from(fileTree("$buildDir/archives")) {
+    into "org/codefreak/templates"
   }
 }
 
@@ -15,7 +34,7 @@ task createArchives(type: Tar) {
   file('templates').eachDir { sub ->
     dependsOn tasks.create("${name}_${sub.name}", Tar) {
       from sub
-      archiveName = "${sub.name}.tar"
+      archiveFileName = "${sub.name}.tar"
       destinationDirectory = file("$buildDir/archives")
     }
   }
