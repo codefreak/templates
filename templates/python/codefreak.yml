@@ -33,7 +33,7 @@ evaluation:
   unit-tests:
     title: Unit Tests
     script: |-
-      pip install pytest
+      pip3 install pytest
       pytest --junitxml=test-results/TEST-suite.xml main_test.py
     report:
       format: junit-xml
@@ -41,8 +41,9 @@ evaluation:
   code-quality:
     title: Code Quality
     script: |-
-      pip install pylint
-      pylint --ignore-patterns='.*?_test.py' --output-format=json -ry **/*.py > pylint-report.json
+      pip3 install pylint
+      touch __init__.py
+      pylint --ignore-patterns='.*?_test.py' --output-format=json -ry $(pwd) > pylint-report.json
     report:
       format: pylint-json
       path: pylint-report.json
