@@ -27,7 +27,7 @@ test {
 checkstyle {
     // Explicitly define a tool version as checkstyle is a Gradle core plugin
     // which might not support recent configurations.
-    toolVersion = '8.45.1'
+    toolVersion = '10.18.2'
     // Make build fail on warnings
     ignoreFailures = false
     maxWarnings = 0
